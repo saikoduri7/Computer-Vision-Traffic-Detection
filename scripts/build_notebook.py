@@ -18,18 +18,13 @@ def cell(kind, source):
 
 cell("markdown", '''
 # Traffic Detection, Tracking & Counting
-Run this notebook from top to bottom. It uses pretrained YOLO11 and ByteTrack,
-with OpenCV for video I/O. No custom training is required.
 
-**Outputs:** labeled video, tracking IDs, line-crossing counts, CSV events, JSON summary.
-Use a short **fixed-camera, constant-frame-rate** video. GPU is optional
-(Runtime → Change runtime type). Large videos and weights stay in Google Drive.
+Detect, track, and count vehicles in fixed-camera video using YOLO11, ByteTrack, and OpenCV.
 ''')
 cell("markdown", '''
-## 1. Load the project
-This project's GitHub URL is already configured below. Set it to an empty string to upload
-the project ZIP (also works for private repositories without notebook credentials).
-Your existing Drive notebook is not overwritten.
+## Project Setup
+
+Load the project from GitHub or a ZIP and install its dependencies.
 ''')
 cell("code", '''
 from pathlib import Path
@@ -80,10 +75,9 @@ print("Project:", REPO)
 print("Device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 ''')
 cell("markdown", '''
-## 2. Mount Drive and select the input
-Change `VIDEO_PATH` if your filename differs. Your existing `traffic-detection`
-Drive folder works with these defaults. The input is copied to temporary local
-storage for processing speed. Keep the original in Drive.
+## Video Input
+
+Connect Google Drive, select your video with `VIDEO_PATH`, and preview its first frame.
 ''')
 cell("code", '''
 from google.colab import drive
@@ -103,13 +97,9 @@ print("Original frame size:", frame.shape[1], "x", frame.shape[0])
 cv2_imshow(frame)
 ''')
 cell("markdown", '''
-## 3. Configure the counting line
-Coordinates are fractions of width and height (0–1). The default horizontal line
-is 60% down the frame. Reposition it where vehicles are visible and cross it.
-The preview uses original dimensions; detections will also use original pixels.
+## Counting Line Configuration
 
-For a left-to-right horizontal line, `negative_to_positive` means above-to-below.
-People are detected but not included in vehicle counts. Bicycles are included.
+Set the confidence threshold and preview the counting line using coordinates between 0 and 1.
 ''')
 cell("code", '''
 config = load_config(REPO / "configs/default.yaml")
@@ -124,8 +114,9 @@ line = config.pixel_line(frame.shape[1], frame.shape[0])
 cv2_imshow(draw_frame(frame, [], line))
 ''')
 cell("markdown", '''
-## 4. Detect objects in one frame
-Weights download on first use. Check boxes before processing the video.
+## Object Detection
+
+Run the pretrained detector on the first frame and display its labels and confidence scores.
 ''')
 cell("code", '''
 detector = Detector(config)
@@ -137,13 +128,9 @@ if torch.cuda.is_available():
     torch.cuda.empty_cache()
 ''')
 cell("markdown", '''
-## 5. Run detection, tracking, and counting
-Start with `MAX_FRAMES = 100`. Inspect the output, then set it to `None` and rerun
-this cell for the entire video. Each run creates a new directory and fresh tracker.
-Do not call the first-frame detector inside the video loop.
+## Video Tracking and Counting
 
-Completed results are copied to Drive automatically. A runtime interruption
-before completion may lose local partial results, so begin with short clips.
+Process `MAX_FRAMES` frames (or the full video with `None`) and save completed results to Drive.
 ''')
 cell("code", '''
 from datetime import datetime, timezone
@@ -165,10 +152,9 @@ for warning in summary["warnings"]:
     print("Warning:", warning)
 ''')
 cell("markdown", '''
-## 6. Preview the output
-Convert a copy to browser-compatible H.264 with ffmpeg (normally available in
-Colab). Large videos are saved but not embedded to keep the notebook manageable.
-The original annotated MP4 is retained if conversion fails. Output is silent.
+## Video Preview
+
+Convert the annotated video to browser-compatible H.264 and preview it when under 20 MB.
 ''')
 cell("code", '''
 from IPython.display import Video, display
@@ -185,10 +171,9 @@ else:
     print("Video is larger than 20 MB. Open it in Drive:", drive_browser)
 ''')
 cell("markdown", '''
-## 7. Inspect and evaluate counts
-Compare a manually watched segment with the matching complete processed interval.
-Counts are once per track ID; identity switches can duplicate physical vehicles.
-This table is crossing events, not all detections.
+## Count Evaluation
+
+Inspect crossing events and optionally compare the predicted total with your manual count.
 ''')
 cell("code", '''
 import csv
@@ -209,10 +194,9 @@ if MANUAL_COUNT is not None:
     print("Relative error:", f"{100 * error / MANUAL_COUNT:.1f}%" if MANUAL_COUNT > 0 else "undefined (manual count is zero)")
 ''')
 cell("markdown", '''
-## 8. Export small examples for GitHub
-This creates a ZIP with the preview, crossing events, a config snapshot, and a
-summary with the private source path removed. It excludes full video and predictions.
-Review outputs before publishing. Do not present synthetic examples as measured results.
+## Results Export
+
+Download a ZIP of the preview, crossing events, configuration, and summary for GitHub.
 ''')
 cell("code", '''
 import yaml
@@ -230,15 +214,9 @@ archive = shutil.make_archive(str(example_dir), "zip", example_dir)
 files.download(archive)
 ''')
 cell("markdown", '''
-## 9. Save the project to GitHub
-1. Save this notebook using **File → Save a copy in GitHub** under `notebooks/`.
-2. Clear large cell outputs before saving; `.gitignore` does not remove embedded video.
-3. Upload chosen small example files to `examples/` and record measured results in `docs/results.md`.
-4. Commit any Python/config changes separately. Saving the notebook does not commit other files.
-5. Open the GitHub notebook in a fresh runtime and verify the whole workflow.
+## GitHub Publishing
 
-The repository includes tests and documentation. Its scope is detection, tracking,
-and counting—not speed measurement, lane segmentation, signal colors, or violations.
+Save a copy of the notebook to GitHub after clearing large outputs, and commit supporting files separately.
 ''')
 
 
