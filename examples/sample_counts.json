@@ -1,0 +1,9 @@
+{
+  "example_type": "synthetic_test_not_real_traffic",
+  "counts": {
+    "total": 1,
+    "by_class_and_direction": {
+      "car": {"negative_to_positive": 1}
+    }
+  }
+}

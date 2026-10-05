@@ -1,0 +1,2 @@
+track_id,class_name,frame_number,timestamp_seconds,direction
+1,car,3,0.3,negative_to_positive

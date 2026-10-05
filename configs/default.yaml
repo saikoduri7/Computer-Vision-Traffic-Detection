@@ -1,0 +1,14 @@
+# Coordinates are fractions of width/height, measured from the top-left.
+# Adjust the line to your camera using the notebook's preview cell.
+model: yolo11n.pt
+confidence: 0.25
+image_size: 640
+device: auto
+detect_classes: [0, 1, 2, 3, 5, 7]
+count_classes: [1, 2, 3, 5, 7]
+line_start: [0.1, 0.6]
+line_end: [0.9, 0.6]
+line_margin_px: 5
+max_gap_frames: 15
+max_frames: null
+save_predictions: true
