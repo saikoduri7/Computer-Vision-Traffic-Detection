@@ -97,7 +97,3 @@ accuracy, manually count a clip and report the comparison in `docs/results.md`.
 - [Ultralytics tracking](https://docs.ultralytics.com/modes/track/)
 - [ByteTrack](https://github.com/ifzhang/ByteTrack)
 - [OpenCV](https://opencv.org/)
-
-Project code is licensed under AGPL-3.0 (see `LICENSE`), matching the open-source
-Ultralytics integration. Third-party code, pretrained weights, and input media
-retain their own applicable terms. See [Ultralytics licensing](https://www.ultralytics.com/license).
