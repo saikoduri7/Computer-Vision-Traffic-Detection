@@ -1,3 +1,4 @@
+# Run offline behavior tests and validate the generated Colab notebook.
 name: Tests
 on: [push, pull_request]
 jobs:
