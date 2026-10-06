@@ -11,8 +11,7 @@ line. Built with OpenCV, pretrained YOLO11, and ByteTrack.
 
 ## Demo
 
-*(https://github.com/user-attachments/assets/2284ca47-e9ed-4aa4-b78d-ead7cd74a04b
-)*
+<video src="https://github.com/user-attachments/assets/2284ca47-e9ed-4aa4-b78d-ead7cd74a04b" width="100%" controls></video>
 
 ## Run in Colab
 
