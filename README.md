@@ -79,6 +79,9 @@ Colab's preinstalled PyTorch is used; package versions are saved in each summary
 
 ## Outputs and reproducibility
 
+For the README demo, use `browser.mp4`; for a small reviewable result, use
+`crossings.csv` and `summary.json`. Full per-frame detections live in `predictions.jsonl`.
+
 Each run has `annotated.mp4`, `preview.jpg`, `crossings.csv`, `summary.json`, and
 optionally `predictions.jsonl`. The notebook can also create `browser.mp4`.
 Frame numbering starts at zero. Input should have constant FPS. Output is silent.
