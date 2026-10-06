@@ -5,7 +5,7 @@
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/saikoduri7/Computer-Vision-Traffic-Detection/blob/main/notebooks/traffic_detection_colab.ipynb)
 
-A Google Colab project that reads a fixed-camera traffic video, detects people
+A traffic detection project that reads a fixed-camera traffic video, detects people
 and common vehicles, tracks their IDs, and counts vehicles crossing a configured
 line. Built with OpenCV, pretrained YOLO11, and ByteTrack.
 
