@@ -13,23 +13,6 @@ line. Built with OpenCV, pretrained YOLO11, and ByteTrack.
 
 <video src="https://github.com/user-attachments/assets/2284ca47-e9ed-4aa4-b78d-ead7cd74a04b" width="100%" controls></video>
 
-## Run in Colab
-
-1. Open `notebooks/traffic_detection_colab.ipynb` in
-   [Google Colab](https://colab.research.google.com/) using **File → Open notebook → GitHub**
-   and paste this repository's URL. Alternatively upload the notebook file.
-2. Select a GPU runtime if available; CPU is supported.
-3. Run the setup cell; this repository's URL is already configured. If you have
-   the ZIP instead, set `repo_url = ""` and upload the ZIP in the setup cell.
-4. Mount Drive. Select your video, normally
-   `/content/drive/MyDrive/traffic-detection/data/videos/traffic.mp4`.
-5. Preview the first frame, adjust the counting line, and run a short check.
-6. Run the full video, export to Drive, preview the result, and inspect counts.
-
-The notebook contains all setup steps. It imports reusable code from `src/`,
-so you need the repository or ZIP as well as the notebook. A private repository
-can be used through the ZIP option without putting a token in a notebook.
-
 ## Features
 
 - Detects person, bicycle, car, motorcycle, bus, truck.
