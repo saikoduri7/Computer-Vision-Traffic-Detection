@@ -18,7 +18,11 @@ EVENT_FIELDS = ["track_id", "class_name", "frame_number", "timestamp_seconds", "
 
 
 def run_video(source, output_dir, config, tracker=None, progress=None):
-    """Output directory must be new. Optional tracker injection supports offline tests."""
+    """Process consecutive frames with fresh tracking and counting state per run.
+
+    Output directory must be new. Optional tracker injection supports offline tests.
+    Frame timestamps use source FPS; crossing records and predictions stream to disk.
+    """
     config.validate()
     source, output_dir = Path(source).resolve(), Path(output_dir).resolve()
     capture, frame, fps = open_video(source)
