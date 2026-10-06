@@ -5,6 +5,7 @@ confidence: 0.25
 image_size: 640
 device: auto
 detect_classes: [0, 1, 2, 3, 5, 7]
+# Count bicycles and motor vehicles; person (COCO ID 0) is detection-only.
 count_classes: [1, 2, 3, 5, 7]
 line_start: [0.1, 0.6]
 line_end: [0.9, 0.6]
