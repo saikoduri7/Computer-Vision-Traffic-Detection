@@ -1,3 +1,6 @@
+
+
+
 # Traffic Detection, Tracking & Counting
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/saikoduri7/Computer-Vision-Traffic-Detection/blob/main/notebooks/traffic_detection_colab.ipynb)
@@ -8,11 +11,8 @@ line. Built with OpenCV, pretrained YOLO11, and ByteTrack.
 
 ## Demo
 
-*Demo video coming soon.*
-
-<!-- Replace the placeholder above with your demo video: edit this README on
-GitHub, drag an MP4 into this section, and keep the generated attachment URL
-on its own line. Use outputs/<run_name>/browser.mp4 from Google Drive. -->
+*[Demo](https://github.com/user-attachments/assets/2284ca47-e9ed-4aa4-b78d-ead7cd74a04b
+)*
 
 ## Run in Colab
 
