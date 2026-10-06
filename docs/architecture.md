@@ -1,5 +1,8 @@
 # Architecture
 
+For a code walkthrough, start with `detector.py` and `tracker.py`, then read
+`counter.py`; `pipeline.py` shows how their outputs are connected for each frame.
+
 ```mermaid
 flowchart LR
     A[Video from Drive] --> B[Local Colab copy]
