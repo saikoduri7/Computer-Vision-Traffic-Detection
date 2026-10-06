@@ -1,3 +1,4 @@
+
 # Coordinates are fractions of width/height, measured from the top-left.
 # Adjust the line to your camera using the notebook's preview cell.
 model: yolo11n.pt

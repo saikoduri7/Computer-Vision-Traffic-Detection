@@ -1,3 +1,4 @@
+
 """Generate the committed Colab notebook; --check verifies it is up to date."""
 import argparse
 import json
