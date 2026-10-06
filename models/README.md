@@ -1,4 +1,3 @@
-
 # Pretrained models
 
 The default model is `yolo11n.pt`, downloaded by Ultralytics on first use.
