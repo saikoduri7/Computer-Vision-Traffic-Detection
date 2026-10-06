@@ -1,4 +1,7 @@
-"""Generate the committed Colab notebook; --check verifies it is up to date."""
+"""Generate the committed Colab notebook; --check verifies it is up to date.
+
+Edit cell text here, then regenerate the notebook so CI sees matching versions.
+"""
 import argparse
 import json
 from pathlib import Path
@@ -173,7 +176,7 @@ else:
 cell("markdown", '''
 ## Count Evaluation
 
-Inspect crossing events and optionally compare the predicted total with your manual count.
+Inspect crossing events and compare the predicted total with a manual count for the same processed interval.
 ''')
 cell("code", '''
 import csv
