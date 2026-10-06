@@ -1,3 +1,5 @@
+"""Check crossing geometry with controlled IDs and bottom-center positions."""
+
 import pytest
 
 from traffic_detection.counter import LineCounter
