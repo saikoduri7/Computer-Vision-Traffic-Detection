@@ -91,7 +91,7 @@ accuracy, manually count a clip and report the comparison in `docs/results.md`.
 - **Too many counts:** inspect ID switches and class errors; reposition the line away from occlusion.
 - **Interrupted runtime:** rerun setup and mount Drive; inputs and completed exports persist there.
 
-## Sources and licensing
+## Sources
 
 - [Ultralytics prediction](https://docs.ultralytics.com/modes/predict/)
 - [Ultralytics tracking](https://docs.ultralytics.com/modes/track/)
