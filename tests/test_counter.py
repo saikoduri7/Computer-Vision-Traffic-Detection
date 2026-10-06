@@ -1,4 +1,3 @@
-
 import pytest
 
 from traffic_detection.counter import LineCounter
