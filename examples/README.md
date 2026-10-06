@@ -1,4 +1,3 @@
-
 # Example artifacts
 
 `sample_counts.json` and `sample_crossings.csv` describe a deliberately synthetic
