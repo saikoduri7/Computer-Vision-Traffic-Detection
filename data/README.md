@@ -1,4 +1,3 @@
-
 # Input videos
 
 In Google Drive, use `MyDrive/traffic-detection/data/videos/traffic.mp4`.
